@@ -1,6 +1,6 @@
 var timeDisplay = $('#currentDay');
 var colorCoded = $('#colorCoded');
-var calendarTime = $('#time')
+var calendarTimes = $('#time');
 
 //function to make the date appear
 function displayDate() {
@@ -8,27 +8,31 @@ function displayDate() {
     timeDisplay.text(rightNow);
   }
 
+function currentTime() {
+    moment().format('hh:mm a');
+}
+
 //function to check the current time against the calendar time so I can color code the bars
 //seems to only be running the code against actual current time console.logging 'past' and 'current' only
 function colorTimeBars() {
-    //var calTime = calendarTime.text();
-    if (displayDate > calendarTime) {
+    //var calTime = calendarTimes.text();
+    if (currentTime > calendarTimes) {
         console.log("past time");
-        console.log(calendarTime);
-} else if (displayDate < calendarTime) {
+        $('#colorCoded').css("background-color", "gray");
+    } else if (currentTime < calendarTimes) {
     console.log("future time");
-    console.log(calendarTime);
-} else (displayDate == calendarTime); {
+    $('#colorCoded').css("background-color", "green");
+    } else {
     console.log("current time");
-    console.log(calendarTime);
+    $('#colorCoded').css("background-color", "red");
 }
 }
-//if applicable... these classes color the cells. possibly use in the loop?
-//<tr class="table-success">...</tr>
-//<tr class="table-danger">...</tr>
-//<tr class="table-dark">...</tr>
+
+for (let i = 0; i < calendarTimes.length; i++) {
+    colorTimeBars();
+  }
 
 
-colorTimeBars(); //running the time check code to color the bars
+//colorTimeBars(); //running the time check code to color the bars (now running in for loop)
 
   setInterval(displayDate, 1000); //running the clock
