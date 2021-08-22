@@ -1,6 +1,8 @@
 var timeDisplay = $('#currentDay');
-var colorCoded = $('#colorCoded');
-var calendarTimes = $('#time');
+var colorCoded = $('.colorCoded');
+var calendarTimes = ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "04:00 pm", "05:00 pm"];
+console.log("length of calendar Times: ", calendarTimes.length)
+
 
 //function to make the date appear
 function displayDate() {
@@ -8,25 +10,34 @@ function displayDate() {
     timeDisplay.text(rightNow);
   }
 
-function currentTime() {
-    moment().format('hh:mm a');
-}
+
+// function currentTime() {
+//     moment().format('hh:mm a');
+// }
+//trying out a var instead of the function for the current time
+//when .format('hh:mm a') is present, everything is green (future).
+//when it is gone, everything is red (current)
+//.toString makes everything gray (past)
+var currentTime = moment().format('hh:mm a') //.toString; 
+console.log("current time: ", currentTime);
+console.log("calendar times var: ", calendarTimes);
+
 
 //function to check the current time against the calendar time so I can color code the bars
-//seems to only be running the code against actual current time console.logging 'past' and 'current' only
 function colorTimeBars() {
-    //var calTime = calendarTimes.text();
     if (currentTime > calendarTimes) {
         console.log("past time");
-        $('#colorCoded').css("background-color", "gray");
+        $('.colorCoded').css("background-color", "gray");
     } else if (currentTime < calendarTimes) {
     console.log("future time");
-    $('#colorCoded').css("background-color", "green");
+    $('.colorCoded').css("background-color", "green");
     } else {
     console.log("current time");
-    $('#colorCoded').css("background-color", "red");
+    $('.colorCoded').css("background-color", "red");
 }
 }
+
+
 
 for (let i = 0; i < calendarTimes.length; i++) {
     colorTimeBars();
@@ -34,5 +45,6 @@ for (let i = 0; i < calendarTimes.length; i++) {
 
 
 //colorTimeBars(); //running the time check code to color the bars (now running in for loop)
+
 
   setInterval(displayDate, 1000); //running the clock
