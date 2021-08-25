@@ -27,30 +27,37 @@ $('.saveuserentry').on("click",function(event){
 //when .format('hh:mm a') is present, everything is green (future).
 //when it is gone, everything is red (current)
 //.toString makes everything gray (past)
-var currentTime = moment().format('hh:mm a'); //.toString; 
-console.log("current time: ", currentTime);
+
 console.log("calendar times var: ", calendarTimes);
 //console.log("getHours: ", currentTime.getHours());
 
 //function to check the current time against the calendar time so I can color code the bars
-function colorTimeBars() {
-    if (currentTime > calendarTimes) {
-        console.log("past time");
-        $('.colorCoded').css("background-color", "gray");
-    } else if (currentTime < calendarTimes) {
-    console.log("future time");
-    $('.colorCoded').css("background-color", "green");
-    } else {
-    console.log("current time");
-    $('.colorCoded').css("background-color", "red");
-}
-}
+// function colorTimeBars() {
+//     if (currentTime > calendarTimes) {
+//         console.log("past time");
+//         $('.colorCoded').css("background-color", "gray");
+//     } else if (currentTime < calendarTimes) {
+//     console.log("future time");
+//     $('.colorCoded').css("background-color", "green");
+//     } else {
+//     console.log("current time");
+//     $('.colorCoded').css("background-color", "red");
+// }
+// }
 
 
-
+var currentTime = moment().hours();
+console.log("current time: ", currentTime);
 for (let i = 10; i <= 17; i++) {
     //colorTimeBars();
-    $(`#${i}-plan`).val(localStorage.getItem(i))
+    $(`#${i}-plan`).val(localStorage.getItem(i));
+    if (currentTime > i) {
+      $(`#${i}-plan`).addClass("past");
+    } else if (currentTime == i) {
+      $(`#${i}-plan`).addClass("present");
+    } else {
+      $(`#${i}-plan`).addClass("future");
+    }
   }
 
 
