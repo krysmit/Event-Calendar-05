@@ -2,7 +2,7 @@ var timeDisplay = $('#currentDay');
 var colorCoded = $('.colorCoded');
 var calendarTimes = ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "04:00 pm", "05:00 pm"];
 console.log("length of calendar Times: ", calendarTimes.length)
-
+displayDate();
 
 //function to make the date appear
 function displayDate() {
@@ -48,8 +48,9 @@ function colorTimeBars() {
 
 
 
-for (let i = 0; i < calendarTimes.length; i++) {
-    colorTimeBars();
+for (let i = 10; i <= 17; i++) {
+    //colorTimeBars();
+    $(`#${i}-plan`).val(localStorage.getItem(i))
   }
 
 
