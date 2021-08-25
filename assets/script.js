@@ -11,6 +11,14 @@ function displayDate() {
   }
 
 
+$('.saveuserentry').on("click",function(event){
+  event.preventDefault();
+  var timeblock = $(this).attr('id').split('-')[0]
+  var userplan = $(`#${timeblock}-plan`).val()
+  console.log(timeblock,userplan)
+})
+
+
 // function currentTime() {
 //     moment().format('hh:mm a');
 // }
@@ -18,7 +26,7 @@ function displayDate() {
 //when .format('hh:mm a') is present, everything is green (future).
 //when it is gone, everything is red (current)
 //.toString makes everything gray (past)
-var currentTime = moment().format('hh:mm a') //.toString; 
+var currentTime = moment().format('hh:mm a'); //.toString; 
 console.log("current time: ", currentTime);
 console.log("calendar times var: ", calendarTimes);
 
