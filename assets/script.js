@@ -15,7 +15,8 @@ $('.saveuserentry').on("click",function(event){
   event.preventDefault();
   var timeblock = $(this).attr('id').split('-')[0]
   var userplan = $(`#${timeblock}-plan`).val()
-  console.log(timeblock,userplan)
+  console.log(timeblock,userplan);
+  localStorage.setItem(timeblock, userplan);
 })
 
 
@@ -29,7 +30,7 @@ $('.saveuserentry').on("click",function(event){
 var currentTime = moment().format('hh:mm a'); //.toString; 
 console.log("current time: ", currentTime);
 console.log("calendar times var: ", calendarTimes);
-
+//console.log("getHours: ", currentTime.getHours());
 
 //function to check the current time against the calendar time so I can color code the bars
 function colorTimeBars() {
