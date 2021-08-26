@@ -1,13 +1,13 @@
 # Event-Calendar-05#
 ## Deployed Website
-
+https://krysmit.github.io/Event-Calendar-05/
 ## GitHub Repository
-
+https://github.com/krysmit/Event-Calendar-05
 
 ### Project Summary
 This project is a daily calendar where hourly events can be logged. The color of each hour block changes depending on the time of day to que to user to upcoming events. The data stays displayed on the page even after being refreshed.
 
-![screenshot of the a calendar entry page]()
+![screenshot of the a calendar entry page](./assets/eventcalss.png)
 
 ### Functions of this page that meet the critera:
 * The date and time are displayed as you open the page.
