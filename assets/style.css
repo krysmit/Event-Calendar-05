@@ -15,10 +15,9 @@ textarea {
 }
 
 .time,
-.savestyle {
+.savestyle { 
 width: 100px;
 }
-
 
 .jumbotron {
   text-align: center;
@@ -70,6 +69,7 @@ width: 100px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  padding: 15px;
 }
 
 .saveBtn i:hover {
